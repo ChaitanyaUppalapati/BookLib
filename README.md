@@ -1,5 +1,5 @@
 
-To install all teh necessary dependencies, run:
+To install all the necessary dependencies, run:
 
 npm install
 
