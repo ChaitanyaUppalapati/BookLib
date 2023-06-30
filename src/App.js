@@ -25,7 +25,7 @@ function App() {
 
   function logout() {
     const baseUrl = ContextHolder.getContext().baseUrl;
-    window.location.href = `${baseUrl}/oauth/logout?post_logout_redirect_uri=http://localhost:3000`;
+    window.location.href = `${baseUrl}/oauth/logout?post_logout_redirect_uri=${window.location.origin}`;
   };
 
   
