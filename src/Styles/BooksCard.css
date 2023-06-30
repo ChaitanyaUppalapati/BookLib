@@ -1,0 +1,8 @@
+#card{
+    height: 350px;
+    max-width: 250px;
+    background-image: url("http://books.google.com/books/content?id=7mktLCw0E2IC&printsec=frontcover&img=1&zoom=5&source=gbs_api");
+    background-position: center;
+    background-size: cover;
+    box-shadow: 0px 0px 5px #000 ;
+}

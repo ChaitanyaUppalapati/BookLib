@@ -1,0 +1,23 @@
+.cartItem{
+    width: 70%;
+    border: 1px solid rgb(46, 46, 46);
+    margin: 10px;
+    padding: 5px;
+    border-radius: 7px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.cardTitle{
+    margin-left: 10px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.qty{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}

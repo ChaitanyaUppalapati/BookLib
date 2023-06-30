@@ -1,0 +1,28 @@
+#navbar{
+    min-height:6vh;
+    width:100vw;
+    border-bottom: 0.5px solid rgb(46, 46, 46);
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#book{
+    color: #323AED;
+}
+
+#lib{
+    color:#000;
+}
+
+#left{
+    padding: 0px 15px;
+}
+
+#right{
+    width: 200px;
+    margin:0px 20px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
