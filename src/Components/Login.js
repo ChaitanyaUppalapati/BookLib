@@ -19,7 +19,7 @@ export default function Login({signedUser,setUser}){
         try{
             await signInWithEmailAndPassword(auth,email,password)
             setUser(user);
-            navigate('/')
+            navigate('/BookLib/')
         }catch(e){
             setErrorMessage("Please check your credentials");
         }
@@ -29,7 +29,7 @@ export default function Login({signedUser,setUser}){
         try{
             await signInWithPopup(auth, googleProvider);
             setUser(user);
-            navigate('/');
+            navigate('/BookLib/');
         }catch(e){
             setErrorMessage("Please check your credentials");
         }
@@ -46,7 +46,7 @@ export default function Login({signedUser,setUser}){
                 <div className="error">{errorMessage}</div>
                 <div className="buttons">
                 <Button variant="contained" onClick={login}>Login</Button>
-                <Button variant="contained" onClick={()=>navigate('/register')}>Register</Button>
+                <Button variant="contained" onClick={()=>navigate('/BookLib/register')}>Register</Button>
                 </div>
                 <span className="card-span"></span>
                 <Button variant="outlined" onClick={googleSignin}><GoogleIcon/> <p>Sign In with Google</p></Button>

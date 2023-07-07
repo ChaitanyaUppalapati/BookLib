@@ -20,7 +20,7 @@ export default function Library({signedUser}){
     const [query,setQuery]=useState(null);
     onAuthStateChanged(auth, (user)=>{
         if(!user){
-            navigate('/register')
+            navigate('/BookLib/register')
         }
     })
     return (

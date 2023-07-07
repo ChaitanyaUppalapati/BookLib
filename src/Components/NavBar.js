@@ -31,7 +31,7 @@ export default function NavBar(){
         try{
             await signOut(auth);
             setUserSet(false);
-            navigate('/login')
+            navigate('/BookLib/login')
         } catch(err){
             console.log(err);
         }
@@ -41,7 +41,7 @@ export default function NavBar(){
     if(userSet){
         element=<>
         <Tooltip title="Cart" arrow>
-        <Link to="/cart"><Button><ShoppingCartOutlinedIcon style={{color:"#323AED"}} /></Button></Link>
+        <Link to="/BookLib/cart"><Button><ShoppingCartOutlinedIcon style={{color:"#323AED"}} /></Button></Link>
     </Tooltip>
 
     <Tooltip title="Logout" arrow>

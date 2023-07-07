@@ -19,7 +19,7 @@ export default function Register({signedUser,setUser}){
         try{
             await createUserWithEmailAndPassword(auth,email,password)
             setUser(user);
-            navigate('/login')            
+            navigate('/BookLib/login')            
         }catch(e){
             if(e.message==="Firebase: Error (auth/email-already-in-use).") setErrorMessage("User already exists!!");
         }
@@ -29,14 +29,14 @@ export default function Register({signedUser,setUser}){
         try{
             await signInWithPopup(auth, googleProvider);
             setUser(user);
-            navigate('/');
+            navigate('/BookLib/');
         }catch(e){
             if(e.message==="Firebase: Error (auth/email-already-in-use).") setErrorMessage("User already exists!!");
         }
     }
 
     function toLogin(){
-        navigate('/login' );
+        navigate('/BookLib/login' );
     }
 
     console.log(user);
