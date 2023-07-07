@@ -47,7 +47,7 @@ export default function Register({signedUser,setUser}){
                 <Input type="email" placeholder="Email..." onChange={(e)=>setEmail(e.target.value)}/>
                 <Input type="password" placeholder="Password..." onChange={(e)=>setPassword(e.target.value)}/>
                 <div className="error">{errorMessage}</div>
-                <div>
+                <div className="buttons">
                 <Button variant="contained" onClick={login}>Register</Button>
                 <Button variant="contained" onClick={toLogin}>Login instead</Button>
                 </div>
