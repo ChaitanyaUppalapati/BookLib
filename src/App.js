@@ -1,43 +1,42 @@
-import {useState, useEffect} from 'react';
 import './App.css';
 import Library from './Components/Library';
 import Cart from './Components/Cart';
 import Book from './Components/Book';
-import { useAuth, useLoginWithRedirect, ContextHolder } from "@frontegg/react";
+import Login from './Components/Login';
+import NotFound from './Components/NotFound';
+import Register from './Components/Register';
+import auth from './Components/Firebase';
+import {getAuth} from 'firebase/auth';
+
 import { Route, Routes } from 'react-router-dom';
 import {
   QueryClient,
   QueryClientProvider,
 } from 'react-query'
+import NavBar from './Components/NavBar';
+import { useState } from 'react';
   
 const queryClient = new QueryClient()
 
 function App() {
-  const { user, isAuthenticated } = useAuth();
-  const loginWithRedirect = useLoginWithRedirect();
-
-  useEffect(() => {
-    if (!isAuthenticated) {
-  loginWithRedirect();
-    }
-  }, [isAuthenticated, loginWithRedirect]);
-
-
-  function logout() {
-    const baseUrl = ContextHolder.getContext().baseUrl;
-    window.location.href = `${baseUrl}/oauth/logout?post_logout_redirect_uri=http://localhost:3000`;
-  };
-
   
-  
-  return <QueryClientProvider client={queryClient}>
+  const authenticate=getAuth();
+  const user=authenticate.currentUser;
+  let [signedUser,setUser]=useState(null);
+
+  return (
+  <QueryClientProvider client={queryClient}>
+      <NavBar signedUser={signedUser} setUser={setUser} />
     <Routes>
-    <Route path="/" element={<Library profilePic={user?.profilePictureUrl} userName={user?.name} logout={logout} />
-} />
-    <Route path="/cart" element={<Cart profilePic={user?.profilePictureUrl} userName={user?.name} logout={logout} />} />
-    <Route path="/book/:name" element={<Book profilePic={user?.profilePictureUrl} userName={user?.name} logout={logout} />} />
-  </Routes>
+      <Route path="/" element={<Library signedUser={signedUser} />} />
+      <Route path="/cart" element={<Cart signedUser={signedUser} />} />
+      <Route path="/login" element={<Login signedUser={signedUser} setUser={setUser}/>} />
+      <Route path="/register" element={<Register signedUser={signedUser} setUser={setUser} />} />
+      <Route path="/book/:name" element={<Book signedUser={signedUser} />} />
+      <Route path="*" element={<NotFound />} />
+    </Routes>
   </QueryClientProvider>
+  )
 }
 
 export default App;

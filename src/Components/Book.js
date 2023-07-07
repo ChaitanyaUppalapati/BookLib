@@ -1,6 +1,7 @@
 import '../Styles/Book.css'
 import { useParams } from "react-router-dom"
 import NavBar from "./NavBar";
+import Loader from "./Loader"
 import Button from '@mui/material/Button';
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 import {
@@ -9,7 +10,7 @@ import {
   } from '@tanstack/react-query'
 import { useState } from 'react';
 
-export default function Book({profilePic, userName, logout}){
+export default function Book({}){
     const {name}=useParams();
     const [copies,setCopies]=useState(localStorage.getItem(name))
 
@@ -36,17 +37,17 @@ export default function Book({profilePic, userName, logout}){
 
     const { isLoading, isError, isSuccess, data, error }=useQuery({queryKey:['data'],queryFn:fetchBooks})
 
-    if(isLoading) return <span>Loading...</span>
+    if(isLoading) return <Loader />
 
     if(isError) return <span>Error: {error.message}</span>
 
     console.log(data)
     
     if(isSuccess){
-        const image=data[0].volumeInfo.imageLinks.thumbnail;
-    const authors=data[0].volumeInfo.authors;
-    const publishedDate=data[0].volumeInfo.publishedDate;
-    const description=data[0].volumeInfo.description;
+        const image=data[0]?.volumeInfo?.imageLinks?.thumbnail;
+    const authors=data[0]?.volumeInfo?.authors;
+    const publishedDate=data[0]?.volumeInfo?.publishedDate;
+    const description=data[0]?.volumeInfo?.description;
     let authorElement="";
     authors.forEach(author => {
         if(authorElement===""){
@@ -58,7 +59,6 @@ export default function Book({profilePic, userName, logout}){
     });
 
     return <>
-        <NavBar logout={logout} userName={userName} profilePic={profilePic} />
         <div className="bookContainer">
             <div className="imageContainer">
                 <img src={image} alt={name} />
