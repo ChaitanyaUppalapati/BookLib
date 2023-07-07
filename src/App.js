@@ -19,6 +19,24 @@ import { useState } from 'react';
 const queryClient = new QueryClient()
 
 function App() {
+<<<<<<< HEAD
+=======
+  const { user, isAuthenticated } = useAuth();
+  const loginWithRedirect = useLoginWithRedirect();
+
+  useEffect(() => {
+    if (!isAuthenticated) {
+  loginWithRedirect();
+    }
+  }, [isAuthenticated, loginWithRedirect]);
+
+
+  function logout() {
+    const baseUrl = ContextHolder.getContext().baseUrl;
+    window.location.href = `${baseUrl}/oauth/logout?post_logout_redirect_uri=${window.location.origin}`;
+  };
+
+>>>>>>> e1717708285d0b7bf64f4d7012bf566f894e5ee6
   
   const authenticate=getAuth();
   const user=authenticate.currentUser;
