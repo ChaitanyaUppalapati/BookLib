@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/BookLib/static/css/main.370b135f.css",
+    "main.js": "/BookLib/static/js/main.99553793.js",
+    "static/media/loader.gif": "/BookLib/static/media/loader.0456e9811d98be22efa0.gif",
+    "index.html": "/BookLib/index.html",
+    "main.370b135f.css.map": "/BookLib/static/css/main.370b135f.css.map",
+    "main.99553793.js.map": "/BookLib/static/js/main.99553793.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.370b135f.css",
+    "static/js/main.99553793.js"
+  ]
+}
